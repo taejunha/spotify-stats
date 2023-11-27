@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    top: 0px;
+    height: 70px;
+    width: 100%;
+    padding: 0 30px;
+    background-color: #8D818C;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    padding: 10px;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+.navbar .log {
+    font-weight: 400; 
+}
