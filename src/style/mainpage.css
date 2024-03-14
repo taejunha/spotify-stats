@@ -1,0 +1,28 @@
+.tracknavbar {
+    display: flex;
+    align-items: center;
+    top: 0px;
+    height: 70px;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.album-cover {
+    max-width: 100px; 
+    max-height: 100px; 
+    margin-right: 10px;
+  }
+  
+  .top-track {
+    display: flex;
+    align-items: center;
+  }
+  
+  .track-info {
+    margin-left: 10px;
+  }
+  
+  .track-number {
+    margin-right: 5px;
+  }
+  

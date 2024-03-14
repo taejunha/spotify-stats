@@ -85,7 +85,7 @@ app.get('/callback', function (req, res) {
             refresh_token = body.refresh_token;
 
         res.redirect(
-          '/toptracks/#' +
+          '/mainpage/#' +
             querystring.stringify({
               client: 'spotify',
               access_token: access_token,

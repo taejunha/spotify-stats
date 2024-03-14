@@ -1,6 +1,6 @@
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
-import { TopTracks } from "./components/TopTracks";
+import { MainPage } from "./components/MainPage";
 import { HomePage } from "./components/HomePage";
 import {
   BrowserRouter as Router,
@@ -14,7 +14,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/home" element={ <HomePage/> } />
-          <Route path="/toptracks" element={ <TopTracks />} />
+          <Route path="/mainpage" element={ <MainPage />} />
         </Routes>
         <Footer />
       </Router>
