@@ -12,10 +12,7 @@ export function Navbar() {
                         <a href="/home">Home</a>
                     </li>
                     <li>
-                        <a href="/toptracks">Top Tracks</a>
-                    </li>
-                    <li>
-                        <a href="/topartists">Top Artists</a>
+                        <a href="/about">About</a>
                     </li>
                 </ul>
             </nav>
