@@ -147,6 +147,29 @@ app.get('/top_tracks', async (req, res) => {
   }
 });
 
+// handles top artists
+app.get('/top_artists', async (req, res) => {
+  const { access_token, time_range } = req.query;
+  
+  try {
+    const response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time_range}&limit=50`, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // this route catches all other GET requests that aren't handled by any routes from above - allows for React Router to handle routing
 app.get('*', function(req, res) {
   res.sendFile(path.resolve(__dirname, 'build', 'index.html'));

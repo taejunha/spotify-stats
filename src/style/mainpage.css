@@ -7,22 +7,28 @@
     padding: 0 30px;
 }
 
-.album-cover {
+.content-select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.album-cover, .artist-image {
     max-width: 100px; 
     max-height: 100px; 
     margin-right: 10px;
   }
   
-  .top-track {
+  .top-track, .top-artist {
     display: flex;
     align-items: center;
   }
   
-  .track-info {
+  .track-info, .artist-info {
     margin-left: 10px;
   }
   
-  .track-number {
+  .track-number, .artist-number {
     margin-right: 5px;
   }
   
