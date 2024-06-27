@@ -1,3 +1,5 @@
+This web application displays the users top fifty tracks and artists from a certain time period using React and the Spotify API. To learn how to run the application on your computer, continue reading this README.
+
 Running the App Locally
 This app runs on Node.js. On its website you can find instructions on how to install it. You can also follow this https://nodejs.org/en/download/package-manager for a quick and easy way to install Node.js and npm.
 
