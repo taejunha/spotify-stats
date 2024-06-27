@@ -8,7 +8,7 @@ export function HomePage() {
         <p className="info" align="center">
             Discover your most played tracks and favourite artists in the past month, six months, or twelve months!
         </p>
-        <button className="login" role="button" >Login with Spotify</button>
+        <a href="/login" className="login" role="button" >Login with Spotify</a>
 
         </>
     )
