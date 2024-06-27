@@ -1,7 +1,9 @@
 // credits
+import "../style/styles.css"
+
 export function Footer() {
     return (
-        <footer className="footer" align="center">
+        <footer className="credit" align="center" >
             <p>Created by Taejun Ha</p>
         </footer>
     )

@@ -1,0 +1,14 @@
+.title {
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: -20px;
+    color: black;
+}
+
+.info {
+    padding: 20px;
+    font-size: 16px;
+    color: black;
+    line-height: 1.6;
+    margin-bottom: -15px;
+}

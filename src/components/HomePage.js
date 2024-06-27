@@ -1,5 +1,6 @@
 //import { redirectToAuthCodeFlow } from "../authCodeWithPkce.js";
 import React, { useState, useEFfect } from 'react';
+import "../style/homepage.css"
 
 export function HomePage() {
     const handleLogin = () => {
@@ -8,18 +9,11 @@ export function HomePage() {
 
     return (
         <>
-        <p align="center">
-            This is a website that displays a user's most-played tracks and most listened to artists
-            from the last month, 6 months, and all time. 
+        <p className="info" align="center">
+            Discover your most played tracks and favourite artists in the past month, six months, or twelve months!
         </p>
-        <p align="center">
-            Use the tabs above to display either your top tracks or top artists.
-        </p>
-        <nav>
-            <ul>
-                <li className="button" onClick={handleLogin} >Login with Spotify</li>
-            </ul>
-        </nav>
+        <button className="login" role="button" onClick={handleLogin} >Login with Spotify</button>
+
         </>
     )
 }

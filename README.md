@@ -1,3 +1,5 @@
+This project displays a users top fifty tracks or artists from a certain time period using React, css, and Spotify API.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

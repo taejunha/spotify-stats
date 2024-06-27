@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../style/mainpage.css";
+
 //import { redirectToAuthCodeFlow, getAccessToken, refreshAccessToken, isTokenExpired } from "../authCodeWithPkce";
 
 const timeRangeMap = {
   'last 4 weeks': 'short_term',
   'last 6 months': 'medium_term',
-  'all time': 'long_term'
+  'last 12 months': 'long_term'
 };
 
 async function fetchUserTopTracks(accessToken, timeRange) {
@@ -41,7 +42,7 @@ export function MainPage() {
         : await fetchUserTopArtists(accessToken, timeRange);
 
       
-      setContent(data.items); // Ensure this function is defined in the scope.
+      setContent(data.items); 
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +75,7 @@ export function MainPage() {
                 album: item.album ? {
                   ...item.album,
                   images: item.album.images && item.album.images.length > 0 ? item.album.images : [defaultImage]
-                } : { images: [defaultImage] }, // Use the album's images or a default image
+                } : { images: [defaultImage] }, // use the album's images or a default image
                 artists: item.artists && item.artists.length > 0 ? 
                   item.artists.map(artist => ({
                     ...artist,
@@ -96,17 +97,13 @@ export function MainPage() {
     return () => isSubscribed = false;
   }, [timeSlot, displayContent]);
 
-  // Handle dropdown selection
+  // handle dropdown selection
   const handleSelectionChange = (event) => {
     setDisplayContent(event.target.value);
   };
-
-  // // Before rendering, check if content is an array
-  // const isContentArray = Array.isArray(content);
   
   return (
     <>
-      <h2 className="track-heading">Your Top {displayContent === 'tracks' ? 'Tracks' : 'Artists'}!</h2>
       <nav className="tracknavbar">
         <select
           className="content-select"
@@ -115,18 +112,19 @@ export function MainPage() {
           <option value="tracks">Top Tracks</option>
           <option value="artists">Top Artists</option>
         </select>
-        <ul>
+        <ul className="time-period">
           <li onClick={() => handleTimeSlotChange('last 4 weeks')}>
             <button type="button">Last 4 weeks</button>
           </li>
           <li onClick={() => handleTimeSlotChange('last 6 months')}>
             <button type="button">Last 6 months</button>
           </li>
-          <li onClick={() => handleTimeSlotChange('all time')}>
-            <button type="button">All time</button>
+          <li onClick={() => handleTimeSlotChange('last 12 months')}>
+            <button type="button">Last 12 months</button>
           </li>
         </ul>
       </nav>
+      <h2 className="track-heading">Your top {displayContent === 'tracks' ? 'tracks' : 'artists'} from the {timeSlot}!</h2>
         <div className="content-list">
           {displayContent === 'tracks' ? (
             <ol className="top-tracks-list">
@@ -134,26 +132,34 @@ export function MainPage() {
                 const imageSrc = track.album?.images?.[0]?.url || 'default_album_image.jpg';
                 return (
                   <li key={track.id} className="top-track">
-                    <span className="track-number">{index + 1}.</span>
                     <img src={imageSrc} alt={`${track.name} album cover`} className="album-cover" />
-                    <span className="track-info">
-                      {track.name} by {track.artists.map((artist) => artist.name).join(", ")} - Popularity: {track.popularity}
+                    <div className="track-info">
+                      <span className="track-name">
+                        {track.name}
+                      </span>
+                      <span className="track-artists">
+                        {track.artists.map((artist) => artist.name).join(", ")}
+                      </span>
+                    </div>
+                    <span className="track-pop">
+                      {track.popularity}
                     </span>
                   </li>
                 );
               })}
             </ol>
           ) : (
-            <ol className="top-artists-list">
-              {/* We map over the artists only if content is an array */}
+            <ol className="top-artists">
               {content.map((artist, index) => {
                 const artistImageSrc = artist.images?.[0]?.url || 'default_artist_image.jpg';
                 return (
                   <li key={artist.id} className="top-artist">
-                    <span className="artist-number">{index + 1}.</span>
                     <img src={artistImageSrc} alt={artist.name} className="artist-image" />
-                    <span className="artist-info">
-                      {artist.name} - Popularity: {artist.popularity}
+                    <span className="artist-name">
+                      {artist.name}
+                    </span>
+                    <span className="artist-pop">
+                      {artist.popularity}
                     </span>
                   </li>
                 );
